@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  get 'users/new'
 
-  get 'static_pages/home'
+  get 'user/new'
 
-  get 'static_pages/help'
+  root 'static_pages#home', as: 'home'
 
-  get 'static_pages/about'
+  get 'help' => 'static_pages#help',as: 'help'
 
-  get 'static_pages/contact'
+  get 'about' => 'static_pages#about', as: 'about'
+
+  get 'contact' => 'static_pages#contact', as: 'contact'
+
+  get 'signup' => 'users#new', as: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
